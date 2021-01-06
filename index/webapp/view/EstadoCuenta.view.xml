@@ -1,0 +1,214 @@
+<mvc:View 
+    controllerName="com.wise.portal.index.controller.EstadoCuenta" 
+    displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:tnt="sap.tnt"
+	xmlns="sap.m">
+    <Page id="idPage" showHeader="false" enableScrolling="true">
+        <subHeader>
+			<Toolbar design="Info">
+				<Label text="{i18n>EstadoCuenta.title}" />
+			</Toolbar>
+		</subHeader>
+        <content>
+            <Panel expandAnimation="true" expanded="true" expandable="true">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="{i18n>Filtros.Title}"/>
+							<ToolbarSpacer/>
+							<Button text="{i18n>Filtros.Button.Filtrar}" type="Transparent"/>
+							<Button text="{i18n>Filtros.Button.Reiniciar}" type="Transparent"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					<Panel expandAnimation="true" expanded="true" expandable="true" backgroundDesign="Transparent">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="{i18n>Panel.HeaderText}"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<content>
+						
+							<ComboBox items="{path:'/ESTADOCUENTA'}" selectedKey="estadoCuenta_0" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_0" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CLIENTES'}" placeholder="Value" width="30rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>							
+						</content>
+					</Panel>
+				</Panel>
+            <Panel id="idPanelPartidasAbiertas" headerText="{i18n>EstadoCuenta.Panel.2.title}"
+				expandAnimation="false" expandable="true" expanded="true" >
+				<Table
+					id="idTablePartidasAbiertas"
+					inset="false"
+					growing="true"
+					growingThreshold="5"
+					growingScrollToLoad="false"
+					itemPress="">
+					<headerToolbar>
+						<Toolbar id="idToolbarPartidasAbiertas">
+							<Title text="{i18n>Records-found}" level="H2"/>
+							<Title id="idCountTablePartidasAbiertas" text="(0)" level="H2"/>
+							<ToolbarSpacer/>
+							<Button press="onPressExportar" text="{i18n>Exportar}" />
+							<Button
+								icon="sap-icon://action-settings"
+								press="onSettingsTable" />
+							<Button icon="sap-icon://table-column" press="onPersoPress" />
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="idCol1">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.1}"/>
+						</Column>
+						<Column id="idCol2">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.2}"/>
+						</Column>
+						<Column id="idCol3">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.3}"/>
+						</Column>
+						
+						<Column id="idCol4" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.4}"/>
+						</Column>
+						
+						<Column id="idCol5"
+							minScreenWidth="Tablet"
+							demandPopin="true"
+							visible="{mManageControls>QA_PA_EstadoCuenta.Monitor.Table.1.Column.5}">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.5}"/>
+						</Column>
+						
+						<Column id="idCol6" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.6}"/>
+						</Column>
+						
+						<Column id="idCol7" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.7}"/>
+						</Column>
+						
+						<Column id="idCol8" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.8}"/>
+						</Column>
+						
+						<Column id="idCol9" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.9}"/>
+						</Column>
+						
+					</columns>
+				
+					<items>
+						<ColumnListItem
+							vAlign="Middle">
+							<cells>
+								<Text text="1"/>
+								<Text text="2"/>
+								<Text text="3"/>
+								<Text text="4"/>
+								<Text text="5"/>
+								<Text text="6"/>
+								<Text text="7"/>
+								<Text text="8"/>
+								<Text text="9"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+            <Panel id="idPanelPartidasCompensadas" headerText="{i18n>EstadoCuenta.Panel.3.title}"
+				expandAnimation="false" expandable="true" expanded="true" >
+				
+				<Table
+					id="idTablePartidasCompensadas"
+					inset="false"
+					growing="true"
+					growingThreshold="5"
+					growingScrollToLoad="false"
+					itemPress="">
+					<headerToolbar>
+						<Toolbar id="idToolbarPartidasCompensadas">
+							<Title text="{i18n>Records-found}" level="H2"/>
+							<Title id="idCountTablePartidasCompensadas" text="(0)" level="H2"/>
+							<ToolbarSpacer/>
+							<Button
+								icon="sap-icon://action-settings"
+								press="onSettingsTable" />
+							<Button icon="sap-icon://table-column" press="onPersoPress" />
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="idCol10">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.1}"/>
+						</Column>
+						<Column id="idCol11">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.2}"/>
+						</Column>
+						<Column id="idCol12">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.3}"/>
+						</Column>
+						
+						<Column id="idCol13" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.4}"/>
+						</Column>
+						
+						<Column id="idCol14"
+							minScreenWidth="Tablet"
+							demandPopin="true"
+							visible="{mManageControls>QA_PC_EstadoCuenta.Monitor.Table.1.Column.5}">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.5}"/>
+						</Column>
+						
+						<Column id="idCol15"
+							minScreenWidth="Tablet"
+							demandPopin="true"
+							visible="{mManageControls>QA_PC_EstadoCuenta.Monitor.Table.1.Column.6}">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.6}"/>
+						</Column>
+						
+						<Column id="idCol16"
+							minScreenWidth="Tablet"
+							demandPopin="true"
+							visible="{mManageControls>QA_PC_EstadoCuenta.Monitor.Table.1.Column.7}">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.7}"/>
+						</Column>
+						
+						<Column id="idCol17"
+							minScreenWidth="Tablet"
+							demandPopin="true"
+							visible="{mManageControls>QA_PC_EstadoCuenta.Monitor.Table.1.Column.8}">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.8}"/>
+						</Column>
+						
+						<Column id="idCol18" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>EstadoCuenta.Monitor.Table.1.Column.9}"/>
+						</Column>
+						
+					</columns>
+				
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text text="9"/>
+								<Text text="8"/>
+								<Text text="7"/>
+								<Text text="6"/>
+								<Text text="5"/>
+								<Text text="4"/>
+								<Text text="3"/>
+								<Text text="2"/>
+								<Text text="1"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>       
+        </content>
+    </Page>
+</mvc:View>

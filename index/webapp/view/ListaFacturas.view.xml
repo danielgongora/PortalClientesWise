@@ -1,0 +1,155 @@
+<mvc:View 
+    controllerName="com.wise.portal.index.controller.ListaFacturas" 
+    displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:tnt="sap.tnt"
+	xmlns="sap.m">
+
+    <App id="app">
+		<Page id="pageListaFacturas" showHeader="false" enableScrolling="true">
+			<subHeader>
+				<Toolbar design="Info">
+					<Label text="{i18n>ListadoFacturas.Toolbar.Title}"/>
+				</Toolbar>
+			</subHeader>
+			<content>
+				<Panel expandAnimation="true" expanded="true" expandable="true">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="{i18n>Filtros.Title}"/>
+							<ToolbarSpacer/>
+							<Button text="{i18n>Filtros.Button.Filtrar}" type="Transparent"/>
+							<Button text="{i18n>Filtros.Button.Reiniciar}" type="Transparent"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					<Panel expandAnimation="true" expanded="true" expandable="true" backgroundDesign="Transparent">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="{i18n>Panel.HeaderText}"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<content>
+						
+							<ComboBox items="{path:'/LISTADOFACTURAS'}" selectedKey="listaFactura_0" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_0" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CLIENTES'}" placeholder="Value" width="30rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+						
+							<ToolbarSpacer/>
+							
+							<ComboBox items="{path:'/LISTADOFACTURAS'}" selectedKey="listaFactura_1" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_1" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<DatePicker placeholder="de" valueFormat="dd-MM-yyyy"  width="17rem" class="sapUiTinyMargin"/>
+							<DatePicker placeholder="a" valueFormat="dd-MM-yyyy" width="12rem" class="sapUiTinyMargin"/>
+							<ToolbarSpacer/>
+							
+							<ComboBox items="{path:'/LISTADOFACTURAS'}" selectedKey="listaFactura_2" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_0" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/STATUS'}" placeholder="Value" width="30rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							
+						</content>
+					</Panel>
+				</Panel>
+				<Table id="tbFacturas" growing="true" growingThreshold="5" growingScrollToLoad="false">
+					<headerToolbar>
+						<Toolbar id="idToolbarListadoFacturas">
+							<Title text="Resultados Encontrados" level="H2"/>
+							<Title id="idCountTableListadoFacturas" text="(2)" level="H2"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://download" press="f_PreparingTableHTMLToExport"/>
+							<Button icon="sap-icon://table-column" press="onPersoPress"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="cFactura">
+							<header>
+								<Label text="Factura" id="factura"/>
+							</header>
+						</Column>
+						<Column id="cNoDoc">
+							<header>
+								<Label text="No. Doc" id="noDoc"/>
+							</header>
+						</Column>
+						<Column id="cImportSinIva">
+							<header>
+								<Label text="Importe Sin Iva" id="impSinIva"/>
+							</header>
+						</Column>
+						<Column id="cMoneda">
+							<header>
+								<Label text="Moneda" id="moneda"/>
+							</header>
+						</Column>
+						<Column id="cVenNeto">
+							<header>
+								<Label text="VenNeto" id="venneto"/>
+							</header>
+						</Column>
+						<Column id="cFechaPago">
+							<header>
+								<Label text="Fecha Pago" id="fechaPago"/>
+							</header>
+						</Column>
+						<Column id="cFecha">
+							<header>
+								<Label text="Fecha" id="fecha"/>
+							</header>
+						</Column>
+						<Column id="cEstado">
+							<header>
+								<Label text="Estado" id="estado"/>
+							</header>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem id="cNombre">
+							<cells>
+								<Text text="345453"/>
+								<Text text="5865493"/>
+								<Text text="1342.45"/>
+								<Text text="MXN"/>
+								<Text text="2019/09/11"/>
+								<Text text="2019/08/10"/>
+								<Text text="2018/07/09"/>
+								<Text text="Pagado"/>
+							</cells>
+						</ColumnListItem>
+						<ColumnListItem id="item1">
+							<cells>
+								<Text text="345453"/>
+								<Text text="5865493"/>
+								<Text text="1342.45"/>
+								<Text text="MXN"/>
+								<Text text="2019/09/11"/>
+								<Text text="2019/08/10"/>
+								<Text text="2018/07/09"/>
+								<Text text="Pagado"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+			</content>
+		</Page>
+	</App>
+    
+    </mvc:View>

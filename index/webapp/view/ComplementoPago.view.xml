@@ -1,0 +1,197 @@
+<mvc:View 
+    controllerName="com.wise.portal.index.controller.ComplementoPago" 
+    displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:tnt="sap.tnt"
+	xmlns="sap.m">
+
+    <App id="app">
+		<Page id="pageComplPago" showHeader="false" enableScrolling="true">
+			<subHeader>
+				<Toolbar design="Info">
+					<Label text="{i18n>ComplementoPago.Toolbar.Title}"/>
+				</Toolbar>
+			</subHeader>
+			<content>
+				<Panel expandAnimation="true" expanded="true" expandable="true">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="{i18n>Filtros.Title}"/>
+							<ToolbarSpacer/>
+							<Button text="{i18n>Filtros.Button.Filtrar}" type="Transparent"/>
+							<Button text="{i18n>Filtros.Button.Reiniciar}" type="Transparent"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					<Panel expandAnimation="true" expanded="true" expandable="true" backgroundDesign="Transparent">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="{i18n>Panel.HeaderText}"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<content>
+						
+							<ComboBox items="{path:'/COMPLEMENTOPAGO'}" selectedKey="complpago_0" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_0" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CLIENTES'}" placeholder="Value" width="30rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+						
+							<ToolbarSpacer/>
+							
+							<ComboBox items="{path:'/COMPLEMENTOPAGO'}" selectedKey="complpago_1" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_1" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<DatePicker placeholder="de" valueFormat="dd-MM-yyyy"  width="17rem" class="sapUiTinyMargin"/>
+							<DatePicker placeholder="a" valueFormat="dd-MM-yyyy" width="12rem" class="sapUiTinyMargin"/>
+							<ToolbarSpacer/>
+							
+							<ComboBox items="{path:'/COMPLEMENTOPAGO'}" selectedKey="listaFactura_2" width="20rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/CONDICIONES'}" selectedKey="condition_0" width="12rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							<ComboBox items="{path:'/STATUS'}" placeholder="Value" width="30rem" class="sapUiTinyMargin">
+								<core:Item key="{key}" text="{text}"/>
+							</ComboBox>
+							
+						</content>
+					</Panel>
+				</Panel>
+				<Table id="tbComplementoPago" mode="SingleSelectLeft" growing="true" growingThreshold="5" growingScrollToLoad="false">
+					<headerToolbar>
+						<Toolbar id="idToolbarComplementoPago">
+							<Title text="Resultados Encontrados" level="H2"/>
+							<Title id="idCountTableComplementoPago" text="(2)" level="H2"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://download" press="f_PreparingTableHTMLToExport"/>
+							<Button icon="sap-icon://table-column" press="onPersoPress"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="cCompl">
+							<header>
+								<Label text="Pos" id="pos"/>
+							</header>
+						</Column>
+						<Column id="cNoDoc">
+							<header>
+								<Label text="No. Documento" id="noDoc"/>
+							</header>
+						</Column>
+						<Column id="cEjercicio">
+							<header>
+								<Label text="Ejericio" id="ejercicio"/>
+							</header>
+						</Column>
+                        <Column id="cFechaPago">
+							<header>
+								<Label text="Fecha Pago" id="fechaPago"/>
+							</header>
+						</Column>
+						<Column id="cTotalPagado">
+							<header>
+								<Label text="Total Pagado" id="totalPagado"/>
+							</header>
+						</Column>
+						<Column id="cMoneda">
+							<header>
+								<Label text="Moneda" id="modena"/>
+							</header>
+						</Column>
+						<Column id="cTipoCambio">
+							<header>
+								<Label text="Tipo Cambio" id="tipoCamibo"/>
+							</header>
+						</Column>
+						<Column id="cUUID">
+							<header>
+								<Label text="UUID" id="uuid"/>
+							</header>
+						</Column>
+						<Column id="cReferencia">
+							<header>
+								<Label text="Referencia" id="referencia"/>
+							</header>
+						</Column>
+                        <Column id="cCreadoEl">
+							<header>
+								<Label text="Creado el" id="creadoEL"/>
+							</header>
+						</Column>
+                        <Column id="cError">
+							<header>
+								<Label text="Error" id="error"/>
+							</header>
+						</Column>
+                        <Column id="cXml">
+							<header>
+								<Label text="XML" id="xml"/>
+							</header>
+						</Column>
+                        <Column id="cPdf">
+							<header>
+								<Label text="PDF" id="pdf"/>
+							</header>
+						</Column>
+                        <Column id="cEstado">
+							<header>
+								<Label text="Estado" id="estado"/>
+							</header>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem id="cNombre">
+							<cells>
+								<Text text="1"/>
+								<Text text="2000012400"/>
+								<Text text="2018"/>
+								<Text text="2018-09-12"/>
+								<Text text="11598.84"/>
+								<Text text="MXN"/>
+								<Text text="0.0"/>
+								<Text text="074275A0-673D-4099-A41D-CBC6A25476F6"/>
+                                <Text text=""/>
+                                <Text text="2018-09-14"/>
+                                <Text text=""/>
+                                <Text text="1"/>
+                                <Text text="1"/>
+                                <Text text="APROBADO"/>
+							</cells>
+						</ColumnListItem>
+						<ColumnListItem id="item1">
+							<cells>
+								<Text text="2"/>
+								<Text text="2000013449"/>
+								<Text text="2018"/>
+								<Text text="2018-09-11"/>
+								<Text text="14599.76"/>
+								<Text text="MXN"/>
+								<Text text="0.0"/>
+								<Text text="8FC59987-752A-4177-8DD7-2E241EA6CCBE"/>
+                                <Text text=""/>
+                                <Text text="2018-12-14"/>
+                                <Text text=""/>
+                                <Text text="0"/>
+                                <Text text="0"/>
+                                <Text text="PENDIENTE"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+			</content>
+		</Page>
+	</App>
+    
+    </mvc:View>

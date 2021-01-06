@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run PortalClientesWise-index",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/portalclienteswise-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/comwiseportalindex/index.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/index",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/PortalClientesWise/index\"}"
+      },
+      "envFile": "${workspaceFolder}/index/.env1",
+      "preLaunchTask": "Build PortalClientesWise"
+    }
+  ]
+}
